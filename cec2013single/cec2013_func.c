@@ -8,7 +8,11 @@
 //#include <WINDOWS.H>
 #include <stdio.h>
 #include <math.h>
+#if defined(__APPLE__)
+#include <malloc/malloc.h>
+#else
 #include <malloc.h>
+#endif
 
 #define INF 1.0e99
 #define EPS 1.0e-14
