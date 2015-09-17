@@ -1,11 +1,11 @@
 /*
-  CEC13 Test Function Suite 
-  Jane Jing Liang (email: liangjing@zzu.edu.cn) 
+  CEC13 Test Function Suite
+  Jane Jing Liang (email: liangjing@zzu.edu.cn)
   8th Jan. 2013
 */
 
 
-//#include <WINDOWS.H>      
+//#include <WINDOWS.H>
 #include <stdio.h>
 #include <math.h>
 #include <malloc.h>
@@ -76,7 +76,7 @@ void test_func(double *x, double *f, int nx, int mx,int func_num)
 		x_bound=(double *)malloc(sizeof(double)  *  nx);
 		for (i=0; i<nx; i++)
 			x_bound[i]=100.0;
-		
+
 		sprintf(FileName, "cec2013_data/M_D%d.txt", nx);
 		fpt = fopen(FileName,"r");
 		if (fpt==NULL)
@@ -94,7 +94,7 @@ void test_func(double *x, double *f, int nx, int mx,int func_num)
 				//printf("M[%d] = %LE,",i+1,M[i]);
 		}
 		fclose(fpt);
-		
+
 
 		fpt=fopen("cec2013_data/shift_data.txt","r");
 		if (fpt==NULL)
@@ -122,19 +122,19 @@ void test_func(double *x, double *f, int nx, int mx,int func_num)
 	{
 		switch(func_num)
 		{
-		case 1:	
+		case 1:
 			sphere_func(&x[i*nx],&f[i],nx,OShift,M,0);
                         //f[i]-=-1400.0;
 			break;
-		case 2:	
+		case 2:
 			ellips_func(&x[i*nx],&f[i],nx,OShift,M,1);
                         //f[i]-=-1300.0;
 			break;
-		case 3:	
+		case 3:
 			bent_cigar_func(&x[i*nx],&f[i],nx,OShift,M,1);
                         //f[i]-=-1200.0;
 			break;
-		case 4:	
+		case 4:
 			discus_func(&x[i*nx],&f[i],nx,OShift,M,1);
                         //f[i]-=-1100.0;
 			break;
@@ -146,79 +146,79 @@ void test_func(double *x, double *f, int nx, int mx,int func_num)
 			rosenbrock_func(&x[i*nx],&f[i],nx,OShift,M,1);
                         //f[i]-=-900.0;
 			break;
-		case 7:	
+		case 7:
 			schaffer_F7_func(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=-800.0;
 			break;
-		case 8:	
+		case 8:
 			ackley_func(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=-700.0;
 			break;
-		case 9:	
+		case 9:
 			weierstrass_func(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=-600.0;
 			break;
-		case 10:	
+		case 10:
 			griewank_func(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=-500.0;
 			break;
-		case 11:	
+		case 11:
 			rastrigin_func(&x[i*nx],&f[i],nx,OShift,M,0);
 			//f[i]-=-400.0;
 			break;
-		case 12:	
+		case 12:
 			rastrigin_func(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=-300.0;
 			break;
-		case 13:	
+		case 13:
 			step_rastrigin_func(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=-200.0;
 			break;
-		case 14:	
+		case 14:
 			schwefel_func(&x[i*nx],&f[i],nx,OShift,M,0);
 			//f[i]-=-100.0;
 			break;
-		case 15:	
+		case 15:
 			schwefel_func(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=100.0;
 			break;
-		case 16:	
+		case 16:
 			katsuura_func(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=200.0;
 			break;
-		case 17:	
+		case 17:
 			bi_rastrigin_func(&x[i*nx],&f[i],nx,OShift,M,0);
 			//f[i]-=300.0;
 			break;
-		case 18:	
+		case 18:
 			bi_rastrigin_func(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=400.0;
 			break;
-		case 19:	
+		case 19:
 			grie_rosen_func(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=500.0;
 			break;
-		case 20:	
+		case 20:
 			escaffer6_func(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=600.0;
 			break;
-		case 21:	
+		case 21:
 			cf01(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=700.0;
 			break;
-		case 22:	
+		case 22:
 			cf02(&x[i*nx],&f[i],nx,OShift,M,0);
 			//f[i]-=800.0;
 			break;
-		case 23:	
+		case 23:
 			cf03(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=900.0;
 			break;
-		case 24:	
+		case 24:
 			cf04(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=1000.0;
 			break;
-		case 25:	
+		case 25:
 			cf05(&x[i*nx],&f[i],nx,OShift,M,1);
 			//f[i]-=1100.0;
 			break;
@@ -235,7 +235,7 @@ void test_func(double *x, double *f, int nx, int mx,int func_num)
 			//f[i]-=1400.0;
 			break;
 		}
-		
+
 	}
 
 
@@ -612,7 +612,7 @@ void schwefel_func (double *x, double *f, int nx, double *Os,double *Mr,int r_fl
 
 	for (i=0; i<nx; i++)
 		z[i] = y[i]+4.209687462275036e+002;
-	
+
     f[0]=0;
     for (i=0; i<nx; i++)
 	{
@@ -732,7 +732,7 @@ void bi_rastrigin_func (double *x, double *f, int nx, double *Os,double *Mr,int 
 	{
 		tmp+=cos(2.0*PI*z[i]);
     }
-	
+
 	if(tmp1<tmp2)
 		f[0] = tmp1;
 	else
@@ -816,7 +816,7 @@ void cf01 (double *x, double *f, int nx, double *Os,double *Mr,int r_flag) /* Co
 	double fit[5];
 	double delta[5] = {10, 20, 30, 40, 50};
 	double bias[5] = {0, 100, 200, 300, 400};
-	
+
 	i=0;
 	rosenbrock_func(x,&fit[i],nx,&Os[i*nx],&Mr[i*nx*nx],r_flag);
 	fit[i]=10000*fit[i]/1e+4;
@@ -1013,7 +1013,7 @@ void oszfunc (double *x, double *xosz, int nx)
 			if (x[i]!=0)
 				xx=log(fabs(x[i]));
 			if (x[i]>0)
-			{	
+			{
 				c1=10;
 				c2=7.9;
 			}
@@ -1021,7 +1021,7 @@ void oszfunc (double *x, double *xosz, int nx)
 			{
 				c1=5.5;
 				c2=3.1;
-			}	
+			}
 			if (x[i]>0)
 				sx=1;
 			else if (x[i]==0)
