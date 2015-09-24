@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <math.h>
 #if defined(__APPLE__)
-#include <malloc/malloc.h>
+#include <stdlib.h>
 #else
 #include <malloc.h>
 #endif
@@ -69,7 +69,7 @@ void test_func(double *x, double *f, int nx, int mx,int func_num)
 	if (ini_flag==0)
 	{
 		FILE *fpt;
-		char FileName[30];
+		char FileName[256], *data_path;
 		free(M);
 		free(OShift);
 		free(y);
@@ -81,7 +81,14 @@ void test_func(double *x, double *f, int nx, int mx,int func_num)
 		for (i=0; i<nx; i++)
 			x_bound[i]=100.0;
 
-		sprintf(FileName, "cec2013_data/M_D%d.txt", nx);
+		// get data path from env
+		data_path = getenv("CEC13DATA");
+		if (data_path == NULL) // if CEC13DATA is not seted
+		{
+			data_path = ".";
+		}
+		sprintf(FileName, "%s/M_D%d.txt", data_path, nx); // data filename
+
 		fpt = fopen(FileName,"r");
 		if (fpt==NULL)
 		{
@@ -99,11 +106,11 @@ void test_func(double *x, double *f, int nx, int mx,int func_num)
 		}
 		fclose(fpt);
 
-
-		fpt=fopen("cec2013_data/shift_data.txt","r");
+		sprintf(FileName, "%s/shift_data.txt", data_path); // shift_data filename
+		fpt = fopen(FileName,"r");
 		if (fpt==NULL)
 		{
-			printf("\n Error: Cannot open data file 'cec2013_data/shift_data.txt' for reading \n");
+			printf("\n Error: Cannot open data file '%s' for reading \n", FileName);
 			return;
 		}
 		OShift=(double *)malloc(nx*cf_num*sizeof(double));
