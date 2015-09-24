@@ -43,3 +43,12 @@ Usage
 
     In [6]: f(pos) # get fitness
     Out[6]: 70296.9232630032
+
+--------------------------------------------------------------
+Configure
+--------------------------------------------------------------
+
+When you call ``f(pos)`` from anywhere except ``cec2013single/cec2013single``,
+enviroment variable ``CEC13DATA`` is required. ::
+
+    export CEC13DATA=PATH-TO-DIR/cec2013single/cec2013_data
