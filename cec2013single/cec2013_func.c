@@ -20,31 +20,31 @@
 #define PI 3.1415926535897932384626433832795029
 
 
-void sphere_func (double *, double *, int , double *,double *, int); /* Sphere */
-void ellips_func(double *, double *, int , double *,double *, int); /* Ellipsoidal */
-void bent_cigar_func(double *, double *, int , double *,double *, int); /* Discus */
-void discus_func(double *, double *, int , double *,double *, int);  /* Bent_Cigar */
-void dif_powers_func(double *, double *, int , double *,double *, int);  /* Different Powers */
-void rosenbrock_func (double *, double *, int , double *,double *, int); /* Rosenbrock's */
-void schaffer_F7_func (double *, double *, int , double *,double *, int); /* Schwefel's F7 */
-void ackley_func (double *, double *, int , double *,double *, int); /* Ackley's */
-void rastrigin_func (double *, double *, int , double *,double *, int); /* Rastrigin's  */
-void weierstrass_func (double *, double *, int , double *,double *, int); /* Weierstrass's  */
-void griewank_func (double *, double *, int , double *,double *, int); /* Griewank's  */
-void schwefel_func (double *, double *, int , double *,double *, int); /* Schwefel's */
-void katsuura_func (double *, double *, int , double *,double *, int); /* Katsuura */
-void bi_rastrigin_func (double *, double *, int , double *,double *, int); /* Lunacek Bi_rastrigin */
-void grie_rosen_func (double *, double *, int , double *,double *, int); /* Griewank-Rosenbrock  */
-void escaffer6_func (double *, double *, int , double *,double *, int); /* Expanded Scaffer��s F6  */
+void sphere_func (double *, double *, int , double *,double *, int);         /* Sphere */
+void ellips_func(double *, double *, int , double *,double *, int);          /* Ellipsoidal */
+void bent_cigar_func(double *, double *, int , double *,double *, int);      /* Discus */
+void discus_func(double *, double *, int , double *,double *, int);          /* Bent_Cigar */
+void dif_powers_func(double *, double *, int , double *,double *, int);      /* Different Powers */
+void rosenbrock_func (double *, double *, int , double *,double *, int);     /* Rosenbrock's */
+void schaffer_F7_func (double *, double *, int , double *,double *, int);    /* Schwefel's F7 */
+void ackley_func (double *, double *, int , double *,double *, int);         /* Ackley's */
+void rastrigin_func (double *, double *, int , double *,double *, int);      /* Rastrigin's  */
+void weierstrass_func (double *, double *, int , double *,double *, int);    /* Weierstrass's  */
+void griewank_func (double *, double *, int , double *,double *, int);       /* Griewank's  */
+void schwefel_func (double *, double *, int , double *,double *, int);       /* Schwefel's */
+void katsuura_func (double *, double *, int , double *,double *, int);       /* Katsuura */
+void bi_rastrigin_func (double *, double *, int , double *,double *, int);   /* Lunacek Bi_rastrigin */
+void grie_rosen_func (double *, double *, int , double *,double *, int);     /* Griewank-Rosenbrock  */
+void escaffer6_func (double *, double *, int , double *,double *, int);      /* Expanded Scaffer��s F6  */
 void step_rastrigin_func (double *, double *, int , double *,double *, int); /* Noncontinuous Rastrigin's  */
-void cf01 (double *, double *, int , double *,double *, int); /* Composition Function 1 */
-void cf02 (double *, double *, int , double *,double *, int); /* Composition Function 2 */
-void cf03 (double *, double *, int , double *,double *, int); /* Composition Function 3 */
-void cf04 (double *, double *, int , double *,double *, int); /* Composition Function 4 */
-void cf05 (double *, double *, int , double *,double *, int); /* Composition Function 5 */
-void cf06 (double *, double *, int , double *,double *, int); /* Composition Function 6 */
-void cf07 (double *, double *, int , double *,double *, int); /* Composition Function 7 */
-void cf08 (double *, double *, int , double *,double *, int); /* Composition Function 8 */
+void cf01 (double *, double *, int , double *,double *, int);                /* Composition Function 1 */
+void cf02 (double *, double *, int , double *,double *, int);                /* Composition Function 2 */
+void cf03 (double *, double *, int , double *,double *, int);                /* Composition Function 3 */
+void cf04 (double *, double *, int , double *,double *, int);                /* Composition Function 4 */
+void cf05 (double *, double *, int , double *,double *, int);                /* Composition Function 5 */
+void cf06 (double *, double *, int , double *,double *, int);                /* Composition Function 6 */
+void cf07 (double *, double *, int , double *,double *, int);                /* Composition Function 7 */
+void cf08 (double *, double *, int , double *,double *, int);                /* Composition Function 8 */
 
 void shiftfunc (double*,double*,int,double*);
 void rotatefunc (double*,double*,int, double*);
@@ -135,115 +135,119 @@ void test_func(double *x, double *f, int nx, int mx,int func_num)
 		{
 		case 1:
 			sphere_func(&x[i*nx],&f[i],nx,OShift,M,0);
-                        //f[i]-=-1400.0;
+			f[i]+=-1400.0;
 			break;
 		case 2:
 			ellips_func(&x[i*nx],&f[i],nx,OShift,M,1);
-                        //f[i]-=-1300.0;
+			f[i]+=-1300.0;
 			break;
 		case 3:
 			bent_cigar_func(&x[i*nx],&f[i],nx,OShift,M,1);
-                        //f[i]-=-1200.0;
+			f[i]+=-1200.0;
 			break;
 		case 4:
 			discus_func(&x[i*nx],&f[i],nx,OShift,M,1);
-                        //f[i]-=-1100.0;
+			f[i]+=-1100.0;
 			break;
 		case 5:
 			dif_powers_func(&x[i*nx],&f[i],nx,OShift,M,0);
-                        //f[i]-=-1000.0;
+			f[i]+=-1000.0;
 			break;
 		case 6:
 			rosenbrock_func(&x[i*nx],&f[i],nx,OShift,M,1);
-                        //f[i]-=-900.0;
+			f[i]+=-900.0;
 			break;
 		case 7:
 			schaffer_F7_func(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=-800.0;
+			f[i]+=-800.0;
 			break;
 		case 8:
 			ackley_func(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=-700.0;
+			f[i]+=-700.0;
 			break;
 		case 9:
 			weierstrass_func(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=-600.0;
+			f[i]+=-600.0;
 			break;
 		case 10:
 			griewank_func(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=-500.0;
+			f[i]+=-500.0;
 			break;
 		case 11:
 			rastrigin_func(&x[i*nx],&f[i],nx,OShift,M,0);
-			//f[i]-=-400.0;
+			f[i]+=-400.0;
 			break;
 		case 12:
 			rastrigin_func(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=-300.0;
+			f[i]+=-300.0;
 			break;
 		case 13:
 			step_rastrigin_func(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=-200.0;
+			f[i]+=-200.0;
 			break;
 		case 14:
 			schwefel_func(&x[i*nx],&f[i],nx,OShift,M,0);
-			//f[i]-=-100.0;
+			f[i]+=-100.0;
 			break;
 		case 15:
 			schwefel_func(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=100.0;
+			f[i]+=100.0;
 			break;
 		case 16:
 			katsuura_func(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=200.0;
+			f[i]+=200.0;
 			break;
 		case 17:
 			bi_rastrigin_func(&x[i*nx],&f[i],nx,OShift,M,0);
-			//f[i]-=300.0;
+			f[i]+=300.0;
 			break;
 		case 18:
 			bi_rastrigin_func(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=400.0;
+			f[i]+=400.0;
 			break;
 		case 19:
 			grie_rosen_func(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=500.0;
+			f[i]+=500.0;
 			break;
 		case 20:
 			escaffer6_func(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=600.0;
+			f[i]+=600.0;
 			break;
 		case 21:
 			cf01(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=700.0;
+			f[i]+=700.0;
 			break;
 		case 22:
 			cf02(&x[i*nx],&f[i],nx,OShift,M,0);
-			//f[i]-=800.0;
+			f[i]+=800.0;
 			break;
 		case 23:
 			cf03(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=900.0;
+			f[i]+=900.0;
 			break;
 		case 24:
 			cf04(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=1000.0;
+			f[i]+=1000.0;
 			break;
 		case 25:
 			cf05(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=1100.0;
+			f[i]+=1100.0;
 			break;
 		case 26:
 			cf06(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=1200.0;
+			f[i]+=1200.0;
 			break;
 		case 27:
 			cf07(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=1300.0;
+			f[i]+=1300.0;
 			break;
 		case 28:
 			cf08(&x[i*nx],&f[i],nx,OShift,M,1);
-			//f[i]-=1400.0;
+			f[i]+=1400.0;
+			break;
+		default:
+			printf("\nError: There are only 28 test functions in this test suite!\n");
+			f[i] = 0.0;
 			break;
 		}
 
@@ -788,7 +792,7 @@ void grie_rosen_func (double *x, double *f, int nx, double *Os,double *Mr,int r_
 }
 
 
-void escaffer6_func (double *x, double *f, int nx, double *Os,double *Mr,int r_flag) /* Expanded Scaffer��s F6  */
+void escaffer6_func (double *x, double *f, int nx, double *Os,double *Mr,int r_flag) /* Expanded Scaffer¨s F6  */
 {
     int i;
     double temp1, temp2;
