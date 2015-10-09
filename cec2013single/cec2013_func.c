@@ -4,15 +4,18 @@
   8th Jan. 2013
 */
 
-
-//#include <WINDOWS.H>
+#if defined(_WIN32) || defined(_WIN64)
+#   include <WINDOWS.H>
+#endif
+/* APPLE can not find malloc.h. use stdlib.h */
+#if defined(__APPLE__)
+#   include <stdlib.h>
+#else
+#   include <malloc.h>
+#   include <stdlib.h>
+#endif
 #include <stdio.h>
 #include <math.h>
-#if defined(__APPLE__)
-#include <stdlib.h>
-#else
-#include <malloc.h>
-#endif
 
 #define INF 1.0e99
 #define EPS 1.0e-14
