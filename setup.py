@@ -2,14 +2,14 @@ from setuptools import setup, find_packages, Extension
 from Cython.Distutils import build_ext
 from Cython.Build import cythonize
 
-#cython = Extension('ea.cbenchmarks',
-#    sources = ['ea/cbenchmarks.pyx'],
-##    include_dirs = ['include/']
-#)
-#
+# for unix
 cec2013single = Extension("cec2013single.cec2013",
               ["cec2013single/cec2013.pyx", "cec2013single/cec2013_func.c"],
-              libraries=["m"]) # Unix-like specific
+              libraries=["m"]) # Unix-like specific. delete this opt for windows
+
+# for windows
+# cec2013single = Extension("cec2013single.cec2013",
+#              ["cec2013single/cec2013.pyx", "cec2013single/cec2013_func.c"])
 
 setup(
 	name='cec2013single',
